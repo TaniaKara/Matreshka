@@ -1,3 +1,3 @@
 # Matreshka
 
-New project to learn about coding of API and front-end
+New project to learn about coding of API (NodeJs) and front-end
