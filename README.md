@@ -15,7 +15,7 @@ git clone XYZ
 ###### Step2: Create a branch 
 
 ```
-git branch -b NAME
+git checkout -b [Branch Name]
 ```
 Then make changes to your files
 
