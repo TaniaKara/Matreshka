@@ -15,10 +15,15 @@ git clone XYZ
 ###### Step2: Create a branch 
 
 ```
-git branch -b NAME
+git checkout -b [Branch Name]
 ```
 Then make changes to your files
 
 ###### Step3:  
 
-Adding a new line to the readme file
+Commit your changes by using the commit command and leave your comments 
+
+```
+git commit -a 
+```
+
