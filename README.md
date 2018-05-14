@@ -21,4 +21,9 @@ Then make changes to your files
 
 ###### Step3:  
 
-Adding a new line to the readme file
+Commit your changes by using the commit command and leave your comments 
+
+```
+git commit -a 
+```
+
