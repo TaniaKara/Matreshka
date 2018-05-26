@@ -2,9 +2,14 @@
   "name": "matreshka",
   "version": "1.0.0",
   "description": "This is a learning project for Github, NodeJs, ExpressJs and REACTJs ## GITHUB Getting Started  ###### Resources  - Learning Path: https://services.github.com/on-demand/resources/learning-path/ - Readme syntax: https://help.github.com/articles/basic-writing-and-formatting-syntax/ - Cheatsheet: https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "engines": {
+    "node": "8.11.1",
+    "npm": "5.6.0"
   },
   "repository": {
     "type": "git",
@@ -17,6 +22,9 @@
   },
   "homepage": "https://github.com/TaniaKara/Matreshka#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "nodemon": "^1.17.5",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0"
   }
 }
