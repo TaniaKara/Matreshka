@@ -20,7 +20,15 @@ require('./config/server');
 
 mongoose.connect(keys.mongoURI);
 
-
-
-app.get('/', (req, res, next)=> res.send('Hello World!'));
 app.listen(PORT, ()=> console.log(`Listening on port ${PORT}`));
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// API Routers
+const tasksRouter = require('./api/tasks.js');
+app.use('/tasks', tasksRouter);
+
+const usersRouter = require('./api/users.js');
+app.use('/users', usersRouter);
