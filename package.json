@@ -7,7 +7,7 @@
     "start": "node app.js",
     "server": "nodemon app.js",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run webhook\""
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "engines": {
     "node": "8.11.1",
