@@ -42,7 +42,7 @@ const findTaskById = (id) => {
     });    
 }
 
-const createNewTaskPayload = (payload) => {
+const createNewTaskRecord = (payload) => {
     const newValues = {};
     if(payload.hasOwnProperty('description')){
         newValues.description = payload.description;
@@ -74,6 +74,6 @@ module.exports = {
     selectTaskById,
     insertTask,   
     findTaskById,
-    createNewTaskPayload,
+    createNewTaskRecord,
     updateTaskValues
 };

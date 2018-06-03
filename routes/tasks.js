@@ -5,7 +5,7 @@ const {selectAllTasks,
     selectTaskById,
     insertTask,
     findTaskById,
-    createNewTaskPayload,
+    createNewTaskRecord,
     updateTaskValues} = require('./tasksHelpers.js');
 
 const db = new sqlite3.Database('./db/Matreshka.db');
@@ -14,41 +14,26 @@ tasksRouter = express.Router();
 module.exports = tasksRouter;
 
 // Get all tasks
-tasksRouter.get('/', (req, res, next) => {    
-    db.all(selectAllTasks(), (error, rows) => {
-        if(!error){
-            res.status(200).send(rows);
-        }else{
-            res.status(400).send(error);
-        }
-    });
-});
+tasksRouter.get('/', (req, res, next) =>     
+    db.all(selectAllTasks(), (error, rows) => 
+        error ? res.status(400).send(error)
+              : res.status(200).send(rows))
+)
 
 // Get tasks by ID
-tasksRouter.get('/:id', (req, res, next) => {
-    const taskId = req.params.id;    
-    db.all(selectTaskById(taskId), (error, rows) => {
-        if(!error){
-            res.status(200).json(rows);                       
-        }else{
-            res.status(400).send(error);            
-        }
-    })
-});
+tasksRouter.get('/:id', (req, res, next) =>     
+    db.all(selectTaskById(req.params.id), (error, rows) => 
+        error ? res.status(400).send(error)  
+              : res.status(200).send(rows))
+)
 
 // Create tasks
 tasksRouter.post('/', (req, res, next) => {
-    const newTask = createNewTaskPayload(req.body);
-    console.log(newTask);
-    db.run(insertTask(newTask), error => {
-        if(error){            
-            res.status(400).send(`Error happened ${error}`);
-        }else{
-            res.status(201).json(this.changes);
-        }
-    })
-    //res.send(newTask);
-});
+    const newTask = createNewTaskRecord(req.body);
+    db.run(insertTask(newTask), error => 
+        error ? res.status(400).send(`Error happened: ${error}`)
+              : res.status(201).json(newTask))
+})
 
 // Update tasks
 tasksRouter.put('/:id', (req, res, next) => {
