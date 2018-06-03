@@ -25,6 +25,7 @@ const updateTask = (newValues) => {
             WHERE Id = ${newValues.id}`;
 }
 
+
 // Find a task record by ID
 const findTaskById = (id) => {
     // db.get() executes the query and calls the callback function on the first resul row            
@@ -71,7 +72,7 @@ const updateTaskValues = (task, newValues) => {
 module.exports = {
     selectAllTasks,
     selectTaskById,
-    insertTask,
+    insertTask,   
     findTaskById,
     createNewTaskPayload,
     updateTaskValues

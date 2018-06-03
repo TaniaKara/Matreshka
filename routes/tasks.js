@@ -16,22 +16,22 @@ module.exports = tasksRouter;
 // Get all tasks
 tasksRouter.get('/', (req, res, next) => {    
     db.all(selectAllTasks(), (error, rows) => {
-        if(error){
-            res.status(404).send(error);
+        if(!error){
+            res.status(200).send(rows);
         }else{
-            res.status(200).json(rows);
+            res.status(400).send(error);
         }
-    }) 
+    });
 });
 
 // Get tasks by ID
 tasksRouter.get('/:id', (req, res, next) => {
     const taskId = req.params.id;    
     db.all(selectTaskById(taskId), (error, rows) => {
-        if(error){            
-            res.status(404).send(error);
+        if(!error){
+            res.status(200).json(rows);                       
         }else{
-            res.status(200).json(rows);
+            res.status(400).send(error);            
         }
     })
 });
@@ -70,3 +70,5 @@ tasksRouter.put('/:id', (req, res, next) => {
         res.status(404).send(`Task with ${req.params.id} does not exist!`);
     }*/
 });
+
+
