@@ -27,8 +27,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // API Routers
-const tasksRouter = require('./api/tasks.js');
-app.use('/tasks', tasksRouter);
+const tasksRouter = require('./routes/tasks.js');
+app.use('/api/tasks', tasksRouter);
 
-const usersRouter = require('./api/users.js');
-app.use('/users', usersRouter);
+const usersRouter = require('./routes/users.js');
+app.use('/api/users', usersRouter);

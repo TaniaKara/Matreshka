@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const sqlite3 = require('sqlite3');
-const {getAllUsers, getUsersById, createUsers} = require('./sqlUsers.js');
+const {getAllUsers, getUsersById, createUsers} = require('./usersHelpers.js');
 const db = new sqlite3.Database('./db/Matreshka.db');
 
 usersRouter = express.Router();
